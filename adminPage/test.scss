@@ -1,0 +1,134 @@
+// 전역 속성
+.color-gray {
+  color: gray;
+}
+
+.side-bar {
+  width: 55px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  transition: 0.4s;
+
+  ul {
+    height: 100%;
+  }
+
+  .side-icon {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    .side-text {
+      margin-left: 10px;
+      transform: translateX(-150px);
+    }
+  }
+
+  &:hover {
+    width: 200px;
+  }
+
+  &:hover .side-text {
+    animation: side-text-ani 0.4s;
+    animation-fill-mode: forwards;
+  }
+}
+
+.form-wrap {
+  display: flex;
+  form {
+    border: 1px solid #eee;
+    display: flex;
+  }
+
+  input {
+    width: 200px;
+    border: none;
+    transition: 1s;
+
+    &:focus {
+      width: 500px;
+    }
+  }
+
+  .search-btn {
+    border: none;
+    color: white;
+    background-color: black;
+  }
+}
+
+.right-menu {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.mobile-header {
+  display: none;
+}
+
+.label1 {
+  height: 100%;
+  border-left: 5px solid #87ceeb;
+}
+.label2 {
+  height: 100%;
+  border-left: 5px solid #3fc95a;
+}
+.label3 {
+  height: 100%;
+  border-left: 5px solid #676ac0;
+}
+.label4 {
+  height: 100%;
+  border-left: 5px solid #ffcb55;
+}
+
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tasks-text {
+  border: none;
+  border-radius: 50%;
+  padding: 5px;
+  color: white;
+  background-color: #007bff;
+}
+
+@keyframes side-text-ani {
+  0% {
+    transform: translateX(-150px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@media screen and(max-width:768px) {
+  .pc-header {
+    display: none;
+  }
+
+  .mobile-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+
+    .mobile-menu-icon {
+      color: gray;
+      padding: 8px 10px;
+    }
+  }
+
+  .dashboard-row {
+    padding-left: 70px;
+  }
+}
