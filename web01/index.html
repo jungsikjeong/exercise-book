@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body style="background-color: #f4f4f4">
+    <header class="header">
+      <h1 class="header-title">집꾸미기</h1>
+      <ul class="header-list">
+        <li>Home</li>
+        <li style="opacity: 0.6">스토어</li>
+        <li style="opacity: 0.6">시공견적</li>
+      </ul>
+    </header>
+    <div class="container">
+      <form class="search-form">
+        <input type="text" class="search" placeholder="검색어 입력" />
+      </form>
+
+      <!-- 상품진열 -->
+      <div class="product-list"></div>
+
+      <div class="cart-background">
+        <h2>장바구니</h2>
+
+        <div class="drag-screen basket">
+          <div class="drag-screen-title">여기로 드래그</div>
+        </div>
+
+        <!-- 최종 가격 -->
+        <div class="sum-price-box">
+          <h2>최종가격</h2>
+          <p class="price"></p>
+          <button class="button buy">구매하기</button>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="main.js"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
+</html>
