@@ -91,6 +91,7 @@ function init() {
           }
 
           // 요소가 계속 추가됨 문제있음
+          dragScreen.innerHTML = '';
           carts.forEach((cart) => {
             dragScreen.insertAdjacentHTML(
               'beforeend',
@@ -144,26 +145,23 @@ function init() {
         for (var i = 0; i < productItem.length; i++) {
           if (productItem[i].dataset.id === data) {
             dragTitle.classList.add('hide');
-            // console.log(data);
 
-            // console.log(productItem[i].dataset.id);
-
+            // 요소가 계속 추가됨 문제있음
+            dragScreen.innerHTML = '';
             carts.forEach((cart) => {
-              if (cart.id.toString() === data) {
-                e.target.insertAdjacentHTML(
-                  'beforeend',
-                  `
-                <div class="product-item product-cart-item" draggable="true" ondragstart="drag(event)">
-                    <img src=${cart.photo} alt="" />
-                    <h5 class="title">${cart.title}</h5>
-                    <p class="brand">${cart.brand}</p>
-                    <p class="price">${cart.price}</p>
-                    <div>
-                    <input type="number" value=${cart.count}>
-                    </div>
-                </div>`
-                );
-              }
+              dragScreen.insertAdjacentHTML(
+                'beforeend',
+                `
+                    <div class="product-item product-cart-item" draggable="true" ondragstart="drag(event)">
+                        <img src=${cart.photo} alt="" />
+                        <h5 class="title">${cart.title}</h5>
+                        <p class="brand">${cart.brand}</p>
+                        <p class="price">${cart.price}</p>
+                        <div>
+                        <input type="number" value=${cart.count} >
+                        </div>
+                    </div>`
+              );
             });
           }
         }
