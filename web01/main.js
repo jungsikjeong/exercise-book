@@ -5,6 +5,11 @@ function init() {
   const dragScreen = document.querySelector('.drag-screen');
   const dragTitle = document.querySelector('.drag-screen-title');
   const basket = document.querySelector('.basket');
+  const finalPriceText = document.querySelector('.final-price');
+  const modal = document.querySelector('.modal');
+  const modalCloseBtn = document.querySelector('.modal-close');
+  const modalSubmit = document.querySelector('.modal-submit');
+  const buyBtn = document.querySelector('.buy');
 
   let products = [];
   let carts = [];
@@ -90,7 +95,6 @@ function init() {
             carts[findNum].count++;
           }
 
-          // 요소가 계속 추가됨 문제있음
           dragScreen.innerHTML = '';
           carts.forEach((cart) => {
             dragScreen.insertAdjacentHTML(
@@ -101,12 +105,14 @@ function init() {
                         <h5 class="title">${cart.title}</h5>
                         <p class="brand">${cart.brand}</p>
                         <p class="price">${cart.price}</p>
-                        <div>
-                        <input type="number" value=${cart.count} >
-                        </div>
+                      
+                        <input type="number" value=${cart.count} class='item-count' >
+                      
                     </div>`
             );
           });
+          // 가격 계산
+          calculation();
         });
       });
 
@@ -157,16 +163,47 @@ function init() {
                         <h5 class="title">${cart.title}</h5>
                         <p class="brand">${cart.brand}</p>
                         <p class="price">${cart.price}</p>
-                        <div>
-                        <input type="number" value=${cart.count} >
-                        </div>
+                       
+                        <input type="number" value=${cart.count} class='item-count'>
+                        
                     </div>`
               );
             });
           }
         }
+        // 상품 총 가격 계산
+        calculation();
       }
     });
+  // then 끝
+
+  let finalPrice = 0;
+  // 상품 총 가격 계산
+  function calculation() {
+    var itemCount = document.querySelectorAll('.item-count');
+
+    for (let i = 0; i < itemCount.length; i++) {
+      var count = itemCount[i].value;
+      var price = itemCount[i].previousSibling.previousSibling.textContent;
+
+      finalPrice += parseFloat(price * count);
+    }
+    finalPriceText.innerHTML = '';
+    finalPriceText.innerHTML = `합계 : ${finalPrice}`;
+  }
+
+  modalCloseBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    modal.style.display = 'none';
+  });
+  buyBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    if (finalPrice !== 0) {
+      modal.style.display = 'flex';
+    } else {
+      finalPriceText.innerHTML = `상품을 먼저 담아주세요!`;
+    }
+  });
 }
 
 init();

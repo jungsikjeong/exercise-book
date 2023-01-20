@@ -19,7 +19,7 @@
     </header>
     <div class="container">
       <form class="search-form">
-        <input type="text" class="search" placeholder="검색어 입력" />
+        <input type="text" class="input-style" placeholder="검색어 입력" />
       </form>
 
       <!-- 상품진열 -->
@@ -35,9 +35,25 @@
         <!-- 최종 가격 -->
         <div class="sum-price-box">
           <h2>최종가격</h2>
-          <p class="price"></p>
+          <p class="price final-price"></p>
           <button class="button buy">구매하기</button>
         </div>
+      </div>
+    </div>
+    <!-- 모달 창 1-->
+    <div class="modal">
+      <div class="modal-wrap">
+        <form class="modal-form">
+          <p style="margin-bottom: 10px">성함</p>
+          <input type="text" class="input-style" />
+          <p style="margin-top: 10px; margin-bottom: 10px">연락처</p>
+          <input style="margin-bottom: 10px" type="text" class="input-style" />
+
+          <div>
+            <button class="button modal-submit" type="submit">입력완료</button>
+            <button class="button modal-close">닫기</button>
+          </div>
+        </form>
       </div>
     </div>
   </body>
