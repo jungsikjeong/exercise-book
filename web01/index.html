@@ -40,20 +40,37 @@
         </div>
       </div>
     </div>
-    <!-- 모달 창 1-->
-    <div class="modal">
-      <div class="modal-wrap">
+
+    <!-- 모달 창 1 -->
+    <div class="modal1">
+      <div class="modal-wrap modal-wrap-1">
         <form class="modal-form">
           <p style="margin-bottom: 10px">성함</p>
-          <input type="text" class="input-style" />
+          <input type="text" class="input-style" id="name" />
           <p style="margin-top: 10px; margin-bottom: 10px">연락처</p>
-          <input style="margin-bottom: 10px" type="text" class="input-style" />
+          <input
+            style="margin-bottom: 10px"
+            type="text"
+            class="input-style"
+            id="phone"
+          />
 
           <div>
             <button class="button modal-submit" type="submit">입력완료</button>
             <button class="button modal-close">닫기</button>
           </div>
         </form>
+      </div>
+    </div>
+
+    <!-- 모달 창 2 -->
+    <div class="modal2">
+      <div class="modal-wrap">
+        <h1>영수증</h1>
+        <canvas id="canvas" width="350" height="350"></canvas>
+        <div class="modal-2-close-wrap">
+          <button class="button modal-close">닫기</button>
+        </div>
       </div>
     </div>
   </body>

@@ -6,10 +6,14 @@ function init() {
   const dragTitle = document.querySelector('.drag-screen-title');
   const basket = document.querySelector('.basket');
   const finalPriceText = document.querySelector('.final-price');
-  const modal = document.querySelector('.modal');
-  const modalCloseBtn = document.querySelector('.modal-close');
+  const modal1 = document.querySelector('.modal1');
+  const modal2 = document.querySelector('.modal2');
+  const modalCloseBtn = document.querySelectorAll('.modal-close');
   const modalSubmit = document.querySelector('.modal-submit');
   const buyBtn = document.querySelector('.buy');
+  const canvas = document.getElementById('canvas');
+  const name = document.getElementById('name');
+  const phone = document.getElementById('phone');
 
   let products = [];
   let carts = [];
@@ -192,17 +196,41 @@ function init() {
     finalPriceText.innerHTML = `합계 : ${finalPrice}`;
   }
 
-  modalCloseBtn.addEventListener('click', function (e) {
-    e.preventDefault();
-    modal.style.display = 'none';
-  });
+  // 모달 1 이벤트
   buyBtn.addEventListener('click', function (e) {
     e.preventDefault();
     if (finalPrice !== 0) {
-      modal.style.display = 'flex';
+      modal1.style.display = 'flex';
     } else {
       finalPriceText.innerHTML = `상품을 먼저 담아주세요!`;
     }
+  });
+
+  // 모달 2 이벤트
+  modalSubmit.addEventListener('click', function (e) {
+    e.preventDefault();
+    modal1.style.display = 'none';
+    modal2.style.display = 'flex';
+
+    var ctx = canvas.getContext('2d');
+
+    ctx.font = '15px dotum';
+    ctx.clearRect((x = 0), (y = 0), (w = canvas.width), (h = canvas.height));
+    ctx.fillText(`구매자 : ${name.value}`, 0, 40);
+    ctx.fillText(`연락처 : ${phone.value}`, 0, 65);
+
+    ctx.fillText(`총 합계 : ${finalPrice}`, 0, 250);
+  });
+
+  // 모달 1,모달 2 동시에 닫음
+  modalCloseBtn.forEach((btn) => {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      modal1.style.display = 'none';
+      modal2.style.display = 'none';
+      name.value = '';
+      phone.value = '';
+    });
   });
 }
 

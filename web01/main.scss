@@ -134,7 +134,8 @@ img {
   margin-top: 20px;
 }
 
-.modal {
+.modal1,
+.modal2 {
   position: fixed;
   margin: auto;
   padding: 30px;
@@ -144,20 +145,30 @@ img {
   background: rgba(0, 0, 0, 0.5);
   z-index: 10;
   display: none;
+  // display: flex;
   justify-content: center;
   align-items: center;
 
   .modal-wrap {
     width: 100%;
     max-width: 500px;
-    height: 200px;
     background: white;
     font-weight: bold;
-    padding: 20px;
+    padding: 30px;
+    border-radius: 5px;
+  }
+  .modal-wrap-1 {
+    height: 200px;
   }
 
   .modal-form {
     display: flex;
     flex-direction: column;
+  }
+
+  .modal-2-close-wrap {
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+    text-align: end;
   }
 }
