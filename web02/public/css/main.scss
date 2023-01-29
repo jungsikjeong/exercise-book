@@ -3,6 +3,14 @@
 /**********  **********/
 // 공용 css          /
 /**********  **********/
+
+.error-message {
+  color: #ff6347;
+  font-size: 12px;
+  margin: auto;
+  margin-top: 12px;
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -234,7 +242,6 @@ a {
 
 .fade-img {
   opacity: 0;
-  // animation: fade-in 400ms ease-out forwards;
 }
 
 .fade-col {

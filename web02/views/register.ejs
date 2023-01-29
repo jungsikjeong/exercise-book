@@ -28,8 +28,27 @@
     <h1 class="register-h1">Register...</h1>
 
     <form class="form-wrap">
-      <input type="text" placeholder="id를 입력해주세요" />
-      <input type="password" placeholder="pw를 입력해주세요" />
+      <input
+        type="text"
+        name="userId"
+        placeholder="id를 입력해주세요"
+        class="user-id"
+      />
+      <input
+        type="text"
+        name="name"
+        placeholder="이름을 입력해주세요"
+        class="user-name"
+      />
+      <input
+        type="password"
+        name="password"
+        placeholder="pw를 입력해주세요"
+        class="user-pw"
+      />
+
+      <p class="error-message"></p>
+
       <p class="ask-member">
         이미 회원이신가요..?
         <a href="/login">
@@ -39,5 +58,10 @@
       <button class="form-btn">Submit</button>
     </form>
   </div>
+  <script
+    src="https://code.jquery.com/jquery-3.6.3.js"
+    integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+    crossorigin="anonymous"
+  ></script>
   <script src="../public/js/register.js"></script>
 </html>

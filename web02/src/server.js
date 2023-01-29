@@ -7,7 +7,7 @@ const app = express();
 
 connectDB();
 
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use('/public', express.static('public'));
 
 app.set('view engine', 'ejs');
