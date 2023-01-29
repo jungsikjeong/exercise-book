@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="../public/css/main.css" />
+  </head>
+  <body style="background-color: #f9f5f2">
+    <%-include('header.ejs')%>
+  </body>
+  <div class="center-wrap flex-direction">
+    <h1 class="register-h1">Login...</h1>
+
+    <form class="form-wrap">
+      <input type="text" placeholder="id를 입력해주세요" />
+      <input type="password" placeholder="pw를 입력해주세요" />
+
+      <p class="ask-member">
+        아직 회원이 아니신가요..?
+        <a href="/register">
+          <span class="underscore">멤버등록</span>
+        </a>
+      </p>
+
+      <button class="form-btn">Submit</button>
+    </form>
+  </div>
+  <script src="../public/js/register.js"></script>
+</html>
