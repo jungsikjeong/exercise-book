@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const gravatar = require('gravatar');
-const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const passport = require('passport');
+const loginPassport = require('../middleware/loginPassport');
 
 const { body, check, validationResult } = require('express-validator');
 
@@ -17,14 +18,38 @@ router.get('/login', (req, res) => {
   res.render('login.ejs');
 });
 
-router.post('/login', (req, res) => {
-  res.render('login.ejs');
+// 로그인
+
+router.post('/login', (req, res, next) => {
+  passport.authenticate(
+    'local',
+    { successRedirect: '/', failWithError: true },
+    (err, user, info) => {
+      if (err) {
+        return next(err);
+      }
+
+      // loginPassport.js에서 인증 실패한 메시지가 나옴
+      if (info) {
+        return res.status(401).json(info);
+      }
+
+      if (!user) {
+        return res.status(401).json({
+          errors: [{ msg: 'authentication fail!' }],
+        });
+      }
+
+      return res.send({ success: true, message: 'authentication succeeded' });
+    }
+  )(req, res, next);
 });
 
 router.get('/register', (req, res) => {
   res.render('register.ejs');
 });
 
+// 회원가입
 router.post(
   '/register',
   [
