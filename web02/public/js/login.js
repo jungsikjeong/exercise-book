@@ -17,7 +17,9 @@ function init() {
       },
     })
       .done((data) => {
-        window.location.href = '/';
+        if (data.success) {
+          window.location.href = '/writer';
+        }
       })
       .fail((request, status, error) => {
         console.log(request.responseJSON.errors);

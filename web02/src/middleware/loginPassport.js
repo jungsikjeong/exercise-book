@@ -9,6 +9,7 @@ module.exports = function () {
   passport.serializeUser(function (user, done) {
     done(null, user.id);
   });
+
   // 세션 해석 코드 , req.user
   passport.deserializeUser(async (id, done) => {
     const user = await User.findOne({ _id: id });

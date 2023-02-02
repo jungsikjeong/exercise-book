@@ -5,10 +5,21 @@ function init() {
   var num = 500;
 
   for (let i = 0; i < fadeColumns.length; i++) {
-    img[i].style.opacity = '1';
     fadeColumns[i].style.animationDelay = `${num}ms`;
     num += 75;
   }
+
+  // 로그인 됬는지 확인하는 코드
+  // $.ajax({
+  //   method: 'GET',
+  //   url: '/',
+  // })
+  //   .done((data) => {
+  //     console.log(data);
+  //   })
+  //   .fail((request, status, error) => {
+  //     console.log(request.responseJSON.errors);
+  //   });
 }
 
 init();

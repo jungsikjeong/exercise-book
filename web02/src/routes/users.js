@@ -19,30 +19,30 @@ router.get('/login', (req, res) => {
 });
 
 // 로그인
-
-router.post('/login', (req, res, next) => {
-  passport.authenticate(
-    'local',
-    { successRedirect: '/', failWithError: true },
-    (err, user, info) => {
-      if (err) {
-        return next(err);
-      }
-
-      // loginPassport.js에서 인증 실패한 메시지가 나옴
-      if (info) {
-        return res.status(401).json(info);
-      }
-
-      if (!user) {
-        return res.status(401).json({
-          errors: [{ msg: 'authentication fail!' }],
-        });
-      }
-
-      return res.send({ success: true, message: 'authentication succeeded' });
+router.post('/login', function (req, res, next) {
+  passport.authenticate('local', function (err, user, info) {
+    if (err) {
+      return next(err);
     }
-  )(req, res, next);
+
+    // loginPassport.js에서 인증 실패한 메시지가 나옴
+    if (info) {
+      return res.status(401).json(info);
+    }
+
+    if (!user) {
+      return res.status(401).json({
+        errors: [{ msg: 'authentication fail!' }],
+      });
+    }
+
+    req.login(user, (loginErr) => {
+      if (loginErr) {
+        return next(loginErr);
+      }
+      return res.send({ success: true, message: 'authentication succeeded' });
+    });
+  })(req, res, next);
 });
 
 router.get('/register', (req, res) => {
@@ -113,22 +113,7 @@ router.post(
 
       await user.save();
 
-      const payload = {
-        user: {
-          id: user.id,
-        },
-      };
-
-      jwt.sign(
-        payload,
-        process.env.JWT_SECRET,
-        { expiresIn: 360000 },
-        (err, token) => {
-          if (err) throw err;
-
-          res.json({ token });
-        }
-      );
+      res.json({ success: true, message: '회원가입 완료' });
     } catch (error) {
       console.error(error.message);
       res.status(500).send('Server Error');

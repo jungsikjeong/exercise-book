@@ -22,8 +22,8 @@ function init() {
       })
       .fail((request, status, error) => {
         // console.log(request);
-        message.innerHTML = request?.responseJSON.errors[0].msg;
         console.log(request.responseJSON.errors);
+        message.innerHTML = request?.responseJSON.errors[0].msg;
       });
   });
 }
