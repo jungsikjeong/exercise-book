@@ -45,6 +45,7 @@ function init() {
 
   let file;
   let fileName;
+
   fileElement.addEventListener('change', function (e) {
     file = e.target.files[0];
     let formData = new FormData();

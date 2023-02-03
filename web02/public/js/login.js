@@ -18,7 +18,7 @@ function init() {
     })
       .done((data) => {
         if (data.success) {
-          window.location.href = '/writer';
+          window.location.href = '/';
         }
       })
       .fail((request, status, error) => {

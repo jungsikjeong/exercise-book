@@ -247,11 +247,59 @@ a {
 .col {
   position: relative;
   width: 100%;
+  height: 100%;
   padding-bottom: 30px;
-
+  cursor: pointer;
   img {
     width: 100%;
+    height: 100%;
   }
+  &:hover {
+    .inner-item {
+      display: block;
+    }
+  }
+}
+
+// 마우스 hover시 보여질 카드 화면
+.inner-item {
+  display: none;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  background: #f2fe8a;
+  div {
+    text-align: center;
+    margin-top: 50px;
+
+    h4 {
+      font-size: 30px;
+    }
+    p {
+      margin-top: 20px;
+      padding: 10px;
+    }
+    .inner-item-text {
+      padding-top: 50px;
+    }
+  }
+}
+
+.민지 {
+  background-color: yellow;
+}
+.하니 {
+  background-color: pink;
+}
+.해린 {
+  background-color: grey;
+}
+.다니엘 {
+  background-color: green;
+}
+.혜인 {
+  background-color: 6c95cf;
 }
 
 .fade-col {

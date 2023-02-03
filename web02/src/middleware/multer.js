@@ -7,6 +7,9 @@ var storage = multer.diskStorage({
     cb(null, __dirname.slice(0, 53) + 'public/image');
   },
   filename: function (req, file, cb) {
+    file.originalname = Buffer.from(file.originalname, 'latin1').toString(
+      'utf8'
+    );
     cb(null, Date.now().toString() + file.originalname);
   },
 });

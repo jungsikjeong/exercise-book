@@ -1,23 +1,33 @@
 function init() {
   const head = document.querySelector('.head');
   const loginAndAbout = document.querySelector('.login-and-about');
+  const listItems = document.querySelectorAll('.head-list-item');
 
   const menu = document.createElement('div');
-  // const ul = document.createElement('ul');
-  // const li = document.createElement('li');
-  // const radius = document.createElement('span');
-  // const spanList = document.createElement('span');
-
-  // ul.setAttribute('class', 'menu-list');
-  // li.setAttribute('class', 'menu-list-item');
-  // radius.setAttribute('class', 'radius radius-size');
-  // spanList.setAttribute('class', 'name');
 
   const loginHtml = `<a href="/login"><span class="head-menu-btn">LOGIN</span></a>`;
   const aboutHtml = `<span class="head-menu-btn">ABOUT</span>`;
 
   menu.classList.add('menu');
 
+  // 헤더에서 카테고리 선택시 가져올 데이터들
+  listItems.forEach((item) => {
+    item.addEventListener('click', function (e) {
+      $.ajax({
+        method: 'POST',
+        url: `/search?value=${e.target.textContent}`,
+      })
+        .done((data) => {
+          console.log(data);
+          window.location.replace('/?value=' + e.target.textContent);
+        })
+        .fail((xhr, code, err) => {
+          console.log(err);
+        });
+    });
+  });
+
+  // 유저가 로그인했는지 체크
   $.post('/isuser').then((data) => {
     if (!data.success) {
       loginAndAbout.insertAdjacentHTML('afterbegin', loginHtml);

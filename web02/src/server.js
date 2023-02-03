@@ -61,6 +61,7 @@ app.get('/logout', function (req, res, next) {
 app.use('/', require('./routes/users'));
 app.use('/', require('./routes/search'));
 app.use('/', require('./routes/writer'));
+app.use('/', require('./routes/list'));
 
 app.listen(process.env.PORT, function () {
   console.log('listening on port 8080');

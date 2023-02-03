@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html,
 body,
 div,
@@ -371,11 +372,65 @@ a {
 .col {
   position: relative;
   width: 100%;
+  height: 100%;
   padding-bottom: 30px;
+  cursor: pointer;
 }
 
 .col img {
   width: 100%;
+  height: 100%;
+}
+
+.col:hover .inner-item {
+  display: block;
+}
+
+.inner-item {
+  display: none;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  background: #f2fe8a;
+}
+
+.inner-item div {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.inner-item div h4 {
+  font-size: 30px;
+}
+
+.inner-item div p {
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.inner-item div .inner-item-text {
+  padding-top: 50px;
+}
+
+.민지 {
+  background-color: yellow;
+}
+
+.하니 {
+  background-color: pink;
+}
+
+.해린 {
+  background-color: grey;
+}
+
+.다니엘 {
+  background-color: green;
+}
+
+.혜인 {
+  background-color: 6c95cf;
 }
 
 .fade-col {
