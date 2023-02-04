@@ -1,26 +1,17 @@
 function init() {
   const row = document.querySelector('.row');
 
-  // `<div class="col fade-col">
-  // <img src="../public/image/민지1.jpg" class="fade-img" />
-  // <div class="inner-item">
-  //   <div>
-  //     <h4>뉴진스</h4>
-  //     <p>민지짱</p>
-  //   </div>
-  // </div>
-  // <footer class="main-footer">23.1.28</footer>`
-
   const decodeUri = decodeURI(window.location?.search);
-  console.log(decodeUri);
 
   fetch(`/list/${decodeUri}`, {
     method: 'GET',
   })
     .then((response) => response.json())
     .then((data) => {
+      console.log(data);
       if (data.length !== 0 && data) {
         for (let i = 0; i < data.length; i++) {
+          // 카드에 title이있는지 체크
           if (data[i].title === '' || data[i].title.length === 0) {
             row.insertAdjacentHTML(
               'afterbegin',
@@ -74,15 +65,3 @@ function init() {
 }
 
 init();
-
-function dateFun(date) {
-  if (typeof date !== 'string') {
-    console.log(date);
-  }
-  // const year = date.substring(2, 4);
-  // const month = date.substring(5, 7);
-  // const day = date.substring(8, 10);
-
-  // // return year + '.' + month + '.' + day;
-  // console.log(year + '.' + month + '.' + day);
-}

@@ -21,17 +21,17 @@
 
     <link rel="stylesheet" href="../public/css/main.css" />
   </head>
-  <body style="background-color: #f9f5f2">
+  <body style="background-color: #f9f5f2; overflow: hidden">
     <%-include('header.ejs')%>
-  </body>
-  <div class="search-wrap">
-    <form class="search-form">
-      <input type="text" placeholder="Search..." class="search-input" />
-    </form>
 
-    <!-- 검색했는데 항목이없으면 보여줄 화면 -->
-    <div class="not-search">There is no entry for "이검색결과".</div>
-  </div>
+    <div class="search-wrap">
+      <form class="search-form">
+        <input type="text" placeholder="Search..." class="search-input" />
+      </form>
+      <div class="not-search"></div>
+    </div>
+    <div class="row"></div>
+  </body>
   <script
     src="https://code.jquery.com/jquery-3.6.3.min.js"
     integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="

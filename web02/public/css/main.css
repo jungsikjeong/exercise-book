@@ -391,7 +391,7 @@ a {
   position: absolute;
   width: 100%;
   top: 0;
-  bottom: 0;
+  bottom: 0px;
   background: #f2fe8a;
 }
 
@@ -441,7 +441,7 @@ a {
 .main-footer {
   width: 100%;
   position: absolute;
-  bottom: 0;
+  bottom: 30px;
   text-align: center;
   margin-bottom: 10px;
   font-size: 15px;
@@ -541,7 +541,6 @@ a {
 /**********  **********/
 /**********  **********/
 .search-input {
-  width: 100%;
   padding: 2rem 1.5rem;
   font-size: 80px;
   outline: none;

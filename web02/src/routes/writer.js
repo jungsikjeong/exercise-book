@@ -13,22 +13,22 @@ router.get('/writer', isLogin, (req, res) => {
 
 router.post('/writer', isLogin, async (req, res) => {
   const { titleText, textBody, categoryValue, fileName } = req.body;
-  console.log(req.body);
 
   try {
     const user = await User.findById(req.user).select('-password');
+    console.log(req.user);
     const post = new Post({
       title: titleText ? titleText : '',
       text: textBody,
       category: categoryValue,
       image: fileName,
-      user: req.user._id,
+      user: req.user,
     });
 
-    user.posts.push(post);
+    // user.posts.push(post);
 
-    await user.save();
-    await post.save();
+    // await user.save();
+    // await post.save();
 
     res.status(201).json({ success: true });
   } catch (error) {
