@@ -3,6 +3,7 @@ const router = express.Router();
 const gravatar = require('gravatar');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
+const bcrypt = require('bcrypt');
 const loginPassport = require('../middleware/loginPassport');
 
 const { body, check, validationResult } = require('express-validator');
@@ -15,6 +16,9 @@ var pattern3 = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/; //한글
 var pattern4 = /[~!@#\#$%<>^&*]/; //특수문자
 
 router.get('/login', (req, res) => {
+  if (req.user) {
+    res.redirect('/');
+  }
   res.render('login.ejs');
 });
 
@@ -46,6 +50,9 @@ router.post('/login', function (req, res, next) {
 });
 
 router.get('/register', (req, res) => {
+  if (req.user) {
+    res.redirect('/');
+  }
   res.render('register.ejs');
 });
 

@@ -481,12 +481,11 @@ a {
 /**********  **********/
 /**********  **********/
 .center-wrap {
-  margin-top: 80px;
   font-family: 'Anton', sans-serif;
   font-weight: bold;
 }
 
-.register-h1 {
+.page-title {
   font-size: 6rem;
   color: #efe5d8;
 }
@@ -529,7 +528,7 @@ a {
 }
 
 @media (max-width: 800px) {
-  .register-h1 {
+  .page-title {
     font-size: 4rem;
     color: #efe5d8;
   }

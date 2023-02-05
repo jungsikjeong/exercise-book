@@ -8,7 +8,7 @@ function init() {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       if (data.length !== 0 && data) {
         for (let i = 0; i < data.length; i++) {
           // 카드에 title이있는지 체크

@@ -16,7 +16,7 @@ router.post('/writer', isLogin, async (req, res) => {
 
   try {
     const user = await User.findById(req.user).select('-password');
-    console.log(req.user);
+
     const post = new Post({
       title: titleText ? titleText : '',
       text: textBody,
@@ -25,10 +25,10 @@ router.post('/writer', isLogin, async (req, res) => {
       user: req.user,
     });
 
-    // user.posts.push(post);
+    user.posts.push(post);
 
-    // await user.save();
-    // await post.save();
+    await user.save();
+    await post.save();
 
     res.status(201).json({ success: true });
   } catch (error) {
@@ -51,5 +51,61 @@ router.post(
     }
   }
 );
+
+router.get('/edit/:id', isLogin, async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+    const user = await User.findById(req.user);
+
+    if (post.user.toString() === user._id.toString()) {
+      return res.render('edit.ejs', { post });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.post('/edit/:id', isLogin, async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+    const user = await User.findById(req.user);
+
+    if (post.user.toString() === user._id.toString()) {
+      return res.status(200).json({ post });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.put('/edit/:id', isLogin, async (req, res) => {
+  const { titleText, textBody, categoryValue, fileName } = req.body;
+
+  try {
+    const user = await User.findById(req.user).select('-password');
+
+    if (user._id.toString() !== req.user) {
+      return res
+        .status(404)
+        .json({ success: false, message: '유저가 일치하지 않습니다.' });
+    }
+
+    const post = await Post.updateOne(
+      { _id: req.params.id },
+      {
+        $set: {
+          title: titleText ? titleText : '',
+          text: textBody,
+          category: categoryValue,
+          image: fileName,
+        },
+      }
+    );
+
+    res.status(201).json({ success: true });
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 module.exports = router;

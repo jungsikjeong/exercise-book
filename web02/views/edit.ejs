@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="../public/css/main.css" />
+  </head>
+  <body style="background-color: #f9f5f2">
+    <%-include('header.ejs')%>
+
+    <h1 class="page-title" style="text-align: center; margin-top: 50px">
+      Edit Page..
+    </h1>
+
+    <div class="center-wrap flex-direction">
+      <form class="form-wrap form-position">
+        <%if(post.title){ %>
+        <input
+          type="text"
+          name="title"
+          placeholder="제목을 입력해주세요"
+          class="title"
+          value="<%=post.title%>"
+        />
+        <%}else {%>
+
+        <div class="title-add">
+          <span>타이틀을 추가하려면 클릭해주세요..</span>
+        </div>
+        <%}%>
+        <textarea
+          name="text"
+          class="post-body"
+          placeholder="내용을 입력해주세요"
+          value="<%=post.text%>"
+        >
+<%=post.text%></textarea
+        >
+
+        <div class="category-wrap">
+          <label class="category-label">
+            <input type="radio" name="category" class="category-input
+            border-color1" value="민지" <%= post.category === '민지' ? 'checked'
+            : '' %> />
+            <span class="category-span">민지</span>
+          </label>
+          <label class="category-label">
+            <input type="radio" name="category" class="category-input
+            border-color2" value="하니" <%= post.category === '하니' ? 'checked'
+            : '' %> />
+            <span class="category-span">하니</span>
+          </label>
+          <label class="category-label">
+            <input type="radio" name="category" class="category-input
+            border-color3" value="해린" <%= post.category === '해린' ? 'checked'
+            : '' %> />
+            <span class="category-span">해린</span>
+          </label>
+          <label class="category-label">
+            <input type="radio" name="category" class="category-input
+            border-color4" value="다니엘" <%= post.category === '다니엘' ?
+            'checked' : '' %> />
+            <span class="category-span">다니엘</span>
+          </label>
+          <label class="category-label">
+            <input type="radio" name="category" class="category-input
+            border-color5" value="혜인" <%= post.category === '혜인' ? 'checked'
+            : '' %> />
+            <span class="category-span">혜인</span>
+          </label>
+        </div>
+
+        <div class="btn-wrap">
+          <button class="form-btn btn" style="margin-top: 0px">Submit</button>
+          <button class="picture-btn btn pictureBtn">
+            <i class="fa-sharp fa-solid fa-camera"></i>
+          </button>
+          <button class="close-btn btn">Close</button>
+        </div>
+
+        <input type="file" name="file" class="file" value="<%=post.image%>" />
+      </form>
+      <!-- <form method="POST" action="/upload" enctype="multipart/form-data">
+        <input type="file" name="file" />
+        <button type="submit">전송</button>
+      </form> -->
+      <!-- <div class="file-wrap">
+        <form
+          method="POST"
+          action="/upload"
+          enctype="multipart/form-data"
+          class="file-form"
+        >
+          <input type="file" name="file" />
+
+          <div class="file-btn-wrap">
+            <button type="submit" class="form-btn btn">확인</button>
+            <button class="close-btn btn">취소</button>
+          </div>
+        </form>
+      </div> -->
+    </div>
+  </body>
+  <script
+    src="https://code.jquery.com/jquery-3.6.3.js"
+    integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+    crossorigin="anonymous"
+  ></script>
+  <script src="../public/js/edit.js"></script>
+</html>
