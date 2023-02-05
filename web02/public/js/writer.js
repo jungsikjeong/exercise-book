@@ -36,13 +36,6 @@ function init() {
     textBody = e.target.value;
   });
 
-  pictureBtn.addEventListener('click', function (e) {
-    e.preventDefault();
-
-    const div = document.createElement('div');
-    div.setAttribute('class', 'picture-wrap');
-  });
-
   let file;
   let fileName;
 

@@ -299,7 +299,7 @@ a {
   background-color: green;
 }
 .혜인 {
-  background-color: 6c95cf;
+  background-color: #6c95cf;
 }
 
 .fade-col {
@@ -435,7 +435,7 @@ a {
   margin-top: 40px;
 }
 /**********  **********/
-// 글쓰기페이지  css         /
+// 글쓰기페이지  css   /
 /**********  **********/
 .form-position {
   position: relative;
@@ -497,7 +497,6 @@ a {
   border-radius: 50%;
   width: 16px;
   height: 16px;
-  // transition: 0.2s all linear;
 
   &:focus-visible {
     outline-offset: 0.1em;
@@ -568,18 +567,20 @@ a {
 }
 
 .file-wrap {
-  width: 400px;
+  width: 100%;
   padding: 10px;
-  background: white;
+
+  input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+  }
 }
 
 .file-form {
   input {
     width: 100%;
   }
-}
-
-.file-btn-wrap {
 }
 
 @media (max-width: 800px) {
@@ -592,4 +593,13 @@ a {
   100% {
     width: 100%;
   }
+}
+
+/**********  **********/
+// 글 수정 페이지 css   /
+/**********  **********/
+
+.edit-image {
+  width: 100%;
+  object-fit: cover;
 }

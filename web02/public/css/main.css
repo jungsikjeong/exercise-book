@@ -429,7 +429,7 @@ a {
 }
 
 .혜인 {
-  background-color: 6c95cf;
+  background-color: #6c95cf;
 }
 
 .fade-col {
@@ -684,9 +684,14 @@ a {
 }
 
 .file-wrap {
-  width: 400px;
+  width: 100%;
   padding: 10px;
-  background: white;
+}
+
+.file-wrap input {
+  width: 100%;
+  padding: 10px;
+  border: none;
 }
 
 .file-form input {
@@ -700,4 +705,11 @@ a {
   100% {
     width: 100%;
   }
+}
+
+/**********  **********/
+/**********  **********/
+.edit-image {
+  width: 100%;
+  object-fit: cover;
 }

@@ -5,6 +5,9 @@ function init() {
   const categoryInput = document.querySelectorAll('.category-input');
   const pictureBtn = document.querySelector('.pictureBtn');
   const fileElement = document.querySelector('.file');
+  const fileWrap = document.querySelector('.file-wrap');
+  const editImage = document.querySelector('.edit-image');
+  const imgBox = document.querySelector('.img-box');
 
   const inputElement = `<input
           type="text"
@@ -43,6 +46,7 @@ function init() {
 
   categoryInput.forEach((category) => {
     category.addEventListener('change', function (e) {
+      editImage.innerHTML = '';
       categoryValue = e.target.value;
     });
   });
@@ -50,13 +54,6 @@ function init() {
   // textarea 작성시 이벤트 작동
   text.addEventListener('change', function (e) {
     textBody = e.target.value;
-  });
-
-  pictureBtn.addEventListener('click', function (e) {
-    e.preventDefault();
-
-    const div = document.createElement('div');
-    div.setAttribute('class', 'picture-wrap');
   });
 
   fileElement.addEventListener('change', function (e) {
@@ -74,6 +71,13 @@ function init() {
       .then((data) => {
         if (data.success) {
           fileName = data.fileInfo.filename;
+          // imgBox.removeChild(edit-image);
+
+          imgBox.innerHTML = '';
+          imgBox.insertAdjacentHTML(
+            'beforeend',
+            `<img src='../public/image/${fileName}' class="edit-image" />`
+          );
         }
       });
   });
