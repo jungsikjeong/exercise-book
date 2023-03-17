@@ -4,6 +4,11 @@ var ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+var img1 = new Image();
+img1.src = 'dinosaur.png';
+var img2 = new Image();
+img2.src = 'cactus.png';
+
 var dino = {
   x: 30,
   y: 350,
@@ -12,12 +17,13 @@ var dino = {
   draw() {
     ctx.fillStyle = 'green';
     ctx.fillRect(this.x, this.y, this.width, this.height);
+    ctx.drawImage(img1, this.x, this.y, this.width, this.height);
   },
 };
 
 class Cactus {
   constructor() {
-    this.x = 300;
+    this.x = 500;
     this.y = 350; // y값이 낮아지면 위로 올라감
     this.width = 50;
     this.height = 50;
@@ -26,6 +32,7 @@ class Cactus {
   draw() {
     ctx.fillStyle = 'red';
     ctx.fillRect(this.x, this.y, this.width, this.height);
+    ctx.drawImage(img2, this.x, this.y, img2.width, this.height);
   }
 }
 
@@ -46,7 +53,7 @@ function animationFrameFun() {
   ctx.fillStyle = 'black';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  if (timer % 200 === 0) {
+  if (timer % 100 === 0) {
     var cactus = new Cactus();
     cactusArray.push(cactus);
   }
@@ -58,9 +65,9 @@ function animationFrameFun() {
     }
 
     // 장애물이 충돌하면 정지함.
-    // if (isCollision(dino, item)) {
-    //   cancelAnimationFrame(animation);
-    // }
+    if (isCollision(dino, item)) {
+      cancelAnimationFrame(animation);
+    }
 
     item.draw();
     item.x--;
@@ -80,7 +87,7 @@ function animationFrameFun() {
     }
   }
 
-  if (jumpTimer > 100) {
+  if (jumpTimer > 20) {
     jumping = false;
     jumpTimer = 0;
   }
