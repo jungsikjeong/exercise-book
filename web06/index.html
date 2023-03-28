@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+      integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- 사이드바 -->
+    <nav class="side-bar">
+      <div class="side-wrapper">
+        <img src="./image/avatar_smoke.jpg" alt="" />
+
+        <div class="box selected">
+          <a href="#home">
+            <i class="fa-sharp fa-solid fa-house"></i>
+            Home
+          </a>
+        </div>
+        <div class="box">
+          <a href="#about">
+            <i class="fa-solid fa-user"></i>
+            ABOUT
+          </a>
+        </div>
+        <div class="box">
+          <a href="#photos">
+            <i class="fa-solid fa-eye"></i>
+            PHOTOS
+          </a>
+        </div>
+        <div class="box">
+          <a href="#contact">
+            <i class="fa-regular fa-envelope"></i>
+            CONTACT
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <header class="main-header" id="home">
+        <h1><span>I'm</span> John Doe.</h1>
+        <p>Photographer and Web Designer.</p>
+        <div class="main-header_image">
+          <img src="./image/man_smoke.jpg" alt="" />
+        </div>
+      </header>
+
+      <section class="about" id="about">
+        <h2>My Name</h2>
+        <hr style="width: 200px; margin: 20px 0" />
+        <p>
+          Some text about me. Some text about me. I am lorem ipsum consectetur
+          adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+          irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+          fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+          sunt in culpa qui officia deserunt mollit anim id est laborum
+          consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+
+        <h3>My Skills</h3>
+
+        <p class="skillset">Photography</p>
+        <div class="skill-stick">
+          <div class="skill-stick__bar" style="width: 95%; height: 28px"></div>
+        </div>
+
+        <p class="skillset">Web Design</p>
+        <div class="skill-stick">
+          <div class="skill-stick__bar" style="width: 90%; height: 28px"></div>
+        </div>
+
+        <p class="skillset">Photoshop</p>
+        <div class="skill-stick">
+          <div class="skill-stick__bar" style="width: 85%; height: 28px"></div>
+        </div>
+
+        <div class="project">
+          <div>
+            <span>11+</span><br />
+            Partners
+          </div>
+          <div>
+            <span>55+</span><br />
+            Projects Done
+          </div>
+          <div>
+            <span>89+</span><br />
+            Happy Clients
+          </div>
+          <div>
+            <span>150+</span><br />
+            Meetings
+          </div>
+        </div>
+
+        <button class="download-btn">
+          <i class="fa-sharp fa-solid fa-download" style="margin-right: 5px"></i
+          >Download Resume
+        </button>
+
+        <h3>My Price</h3>
+
+        <div class="price-container">
+          <div class="price-wrapper basic">
+            <ul class="price-list">
+              <li class="price-item">Basic</li>
+              <li class="price-item">Web Design</li>
+              <li class="price-item">Photography</li>
+              <li class="price-item">5GB Storage</li>
+              <li class="price-item">Mail Support</li>
+              <li class="price-item">
+                <span> $10 </span><br />
+                per month
+              </li>
+              <li class="price-item"><button>Sign Up</button></li>
+            </ul>
+          </div>
+
+          <div class="price-wrapper pro">
+            <ul class="price-list">
+              <li class="price-item">Pro</li>
+
+              <li class="price-item">Web Design</li>
+              <li class="price-item">Photography</li>
+              <li class="price-item">5GB Storage</li>
+              <li class="price-item">Endless Support</li>
+              <li class="price-item">
+                <span> $25 </span><br />
+                per month
+              </li>
+              <li class="price-item"><button>Sign Up</button></li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>My Reputation</h3>
+        <div class="reputation">
+          <img src="./image/bandmember.jpg" alt="" />
+          <div class="reputation-wrap">
+            <p>
+              <span style="font-size: 1.2rem">Chris Fox.</span> CEO at Mighty
+              Schools.
+            </p>
+            <p>John Doe saved us from a web disaster.</p>
+          </div>
+        </div>
+        <div class="reputation">
+          <img src="./image/avatar_g2.jpg" alt="" />
+          <div class="reputation-wrap">
+            <p>
+              <span style="font-size: 1.2rem">Rebecca Flex.</span> CEO at
+              Company.
+            </p>
+            <p>No one is better than John Doe.</p>
+          </div>
+        </div>
+
+        <h3 id="photos">My Photos</h3>
+        <hr style="width: 200px; margin: 20px 0" />
+        <div class="photos">
+          <div>
+            <img src="./image/1.jpg" alt="" />
+            <img src="./image/2.jpg" alt="" />
+            <img src="./image/3.jpg" alt="" />
+          </div>
+
+          <div>
+            <img src="./image/4.jpg" alt="" />
+            <img src="./image/5.jpg" alt="" />
+            <img src="./image/6.jpg" alt="" />
+            <img src="./image/7.jpg" alt="" />
+          </div>
+        </div>
+
+        <h3 id="contact">Contact Me</h3>
+        <hr style="width: 200px; margin: 20px 0" />
+
+        <div class="contact">
+          <div class="contact-wrap">
+            <i class="fa-solid fa-location-dot"></i>
+            <p>Chicago, US</p>
+          </div>
+          <div class="contact-wrap">
+            <i class="fa-sharp fa-solid fa-phone"></i>
+            <p>Chicago, US</p>
+          </div>
+          <div class="contact-wrap">
+            <i class="fa-solid fa-envelope"></i>
+            <p>Email: mail@mail.com</p>
+          </div>
+        </div>
+
+        <p style="margin: 2rem 0">Let's get in touch. Send me a message:</p>
+
+        <form class="form-wrap">
+          <input type="text" placeholder="Name" />
+          <input type="text" placeholder="Email" />
+          <input type="text" placeholder="Subject" />
+          <input type="text" placeholder="Message" />
+
+          <button type="submit">
+            <i class="fa-solid fa-paper-plane"></i>
+            SEND MESSAGE
+          </button>
+        </form>
+
+        <footer>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-facebook"></i>
+          <p>Powered by <span>w3.css</span></p>
+        </footer>
+      </section>
+    </div>
+  </body>
+
+  <script>
+    const box = document.querySelectorAll('.box');
+
+    for (let i = 0; i < box.length; i++) {
+      box[i].addEventListener('mouseover', function (e) {
+        if (box[i].className.includes('selected')) {
+          box[i].classList.add('hoverEffect');
+        }
+      });
+      box[i].addEventListener('mouseout', function (e) {
+        if (box[i].className.includes('selected')) {
+          box[i].classList.remove('hoverEffect');
+        }
+      });
+
+      box[i].addEventListener('click', function (e) {
+        box.forEach(function (element) {
+          element.classList.remove('selected');
+          if (!e.currentTarget.className.includes('selected')) {
+            box[i].classList.add('selected');
+          }
+        });
+      });
+    }
+  </script>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
+</html>
